@@ -18,6 +18,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+	void initPlaylist();
+
 	void loadFileToPlaylist(const QString& filename);
 
 private slots:
@@ -39,11 +41,22 @@ private slots:
 
 	void on_horizontalSliderTime_sliderMoved(int position);
 
+	void on_pushButtonShuffle_clicked();
+
+	void on_pushButtonLoop_clicked();
+
+	void on_pushButtonDel_clicked();
+
+	void on_pushButtonClr_clicked();
+
 private:
     Ui::MainWindow *ui;
 	QMediaPlayer* m_player;
 	QMediaPlaylist* m_playlist;
 	QStandardItemModel* m_playlist_model;
+
+	bool shuffle;
+	bool loop;
 
 };
 #endif // MAINWINDOW_H
