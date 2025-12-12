@@ -21,6 +21,9 @@ public:
 	void initPlaylist();
 
 	void loadFileToPlaylist(const QString& filename);
+	void savePlaylist(const QString& filename);
+	void loadPlaylist(const QString& filename);
+	QVector<QString> loadPlaylistToArray(const QString& filename);
 
 private slots:
 	void on_pushButtonAdd_clicked();
@@ -49,7 +52,12 @@ private slots:
 
 	void on_pushButtonClr_clicked();
 
+	void on_pushButtonDir_clicked();
+
 private:
+
+	void traverseDirectories(const QString& dirname);
+
     Ui::MainWindow *ui;
 	QMediaPlayer* m_player;
 	QMediaPlaylist* m_playlist;
